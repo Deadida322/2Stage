@@ -1,10 +1,16 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         printFirstStageTest();
         System.out.println("---------------------------------------");
         printSecondStageTest();
+        System.out.println("---------------------------------------");
+        CollectionsBlock<Integer> CB = new CollectionsBlock<Integer>();
+        List<String> inputList = Arrays.asList("12", "121", "AA");
+        int n = -3;
+        System.out.println(CB.collectionTask4(inputList, "12", "asss"));
     }
 
     public static void printFirstStageTest(){

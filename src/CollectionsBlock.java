@@ -76,21 +76,28 @@ public class CollectionsBlock<T extends Comparable> {
      * @throws NullPointerException если один из параметров null
      */
     public List<T> collectionTask3(List<T> inArr, int shift) {
-
-            if ((inArr == null) || (inArr.size() == 0 ) || (shift <= 0)) {
-                throw new java.lang.IllegalArgumentException();
-            }
-            while(shift>0)
-            {
-                T lastVar = inArr.get(inArr.size() - 1);
-                for(int counter = 0; counter<inArr.size(); counter++)
-                {
-                    T curVal = inArr.get(counter);
-                    inArr.set(counter, lastVar);
-                    lastVar = curVal;
+        if (shift < 0)
+            shift = inArr.size() + shift;
+        if (shift > 0){
+            while (shift > 0){
+                T lastVal = inArr.get(inArr.size()-1);
+                for(int i = 0; i < inArr.size(); i++){
+                   T currVal = inArr.get(i);
+                   inArr.set(i, lastVal);
+                   lastVal = currVal;
                 }
                 shift--;
             }
-            return inArr;
+        }
+        return inArr;
+    }
+
+    public List<String> collectionTask4(List<String> inputList, String a, String b) {
+        for (int i = 0; i < inputList.size(); i++) {
+            if (inputList.get(i).equals(a)){
+                inputList.set(i, b);
+            }
+        }
+        return inputList;
     }
 }
