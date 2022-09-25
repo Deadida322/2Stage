@@ -2,6 +2,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PracticeTask {
+
+
     public interface Printable{
         void print();
     }
@@ -29,7 +31,59 @@ public class PracticeTask {
             task.print();
         }
     }
+    public static class Circle implements Shape {
+        private Integer radius;
+        public Circle(int radius){
+            this.radius = radius;
+        }
 
+        @Override
+        public void perimeter(){
+            System.out.println(2* Math.PI * radius);
+        }
+
+        @Override
+        public void area(){
+            System.out.println(Math.PI * Math.pow(radius, 2));
+        }
+    }
+    static class Square implements Shape {
+        int length;
+
+        public Square(int length) {
+            this.length = length;
+        }
+
+        @Override
+        public void perimeter() {
+            System.out.println(4 * this.length);
+        }
+
+        @Override
+        public void area() {
+            System.out.println(2 * this.length);
+        }
+    }
+
+    static class Rectangle implements Shape {
+        int length;
+        int width;
+
+        public Rectangle(int length, int width) {
+            this.length = length;
+            this.width = width;
+        }
+
+        @Override
+        public void perimeter() {
+            System.out.println(2 * this.length + 2 * this.width);
+        }
+
+        @Override
+        public void area() {
+            System.out.println(this.length * this.width);
+        }
+    }
     public static Point doOneStep(Point dot, Directions direction){
         switch (direction){
             case UP -> dot.y += 1;
