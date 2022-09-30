@@ -1,60 +1,87 @@
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        printFirstStageTest();
-        System.out.println("---------------------------------------");
-        printSecondStageTest();
+        doClassesBlock();
     }
 
-    public static void printFirstStageTest(){
-        ElementaryTraining methods = new ElementaryTraining();
-        System.out.println("Простая часть");
-        System.out.println("Среднее значение для введённых элементов.");
-        System.out.println("Первый метод:");
-        System.out.println(methods.averageValue(2, 3));
-
-        System.out.println("Манипуляция с числами и возврат их суммы.");
-        System.out.println("Результат второго метода:");
-        System.out.println(methods.complicatedAmount(2, 2, 2));
-
-        System.out.println("Замена значения в соответствии с условием.");
-        System.out.println("Результат третьего метода:");
-        System.out.println(methods.changeValue(9));
-
-        System.out.println("Замена местами первой и последней цифр.");
-        System.out.println("Результат четвёртого метода:");
-        System.out.println(methods.swapNumbers(22443));
-
-        System.out.println("Изменить значение четных цифр на 0.");
-        System.out.println("Результат пятого метода:");
-        System.out.println(methods.zeroEvenNumber(3982));
+    public static void doCollectionTask(){
+        CollectionBlockTask CBT = new CollectionBlockTask();
+        CBT.printList();
+        System.out.println("-----------------");
+        CBT.getAverageScore();
+        CBT.printOldest();
+        CBT.printYoungest();
+        CBT.printBest();
     }
 
-    public static void printSecondStageTest() {
-        ArraysTraining methods = new ArraysTraining();
-        int[] numbers = {0, 2, 3, 7, 5, 3, 3, 5};
+    public static void doClassesBlock(){
+        System.out.println("-----------------");
+        System.out.println("\n Блок с классами \n");
+        TwoVars TV = new TwoVars();
+        TV.setFirstVar(1);
+        TV.setSecondVar(10);
 
-        System.out.println("Вторая часть");
-        System.out.println("Сортировка пузырьком.");
-        System.out.println("Результат первого метода:");
-        System.out.println(Arrays.toString(methods.sort(numbers)));
+        TV.printFirstVar();
+        TV.printSecondVar();
+        System.out.println("Сумма элементов: " + TV.getSum());
+        System.out.println("Максимальный элемент: " + TV.getMax());
+        System.out.println("\n Второе задание \n");
 
-        System.out.println("Максимальное значение из введённых.");
-        System.out.println("Результат второго метода:");
-        System.out.println(methods.maxValue(numbers));
+        ClassWithDynamicArray CWDA = new ClassWithDynamicArray(10);
+        CWDA.randomFillArray();
+        CWDA.printArray();
+        CWDA.shakeArray();
+        CWDA.printArray();
+        System.out.println(CWDA.countElems(1));
 
-        System.out.println("Элементы массива в обратном порядке.");
-        System.out.println("Результат третьего метода:");
-        System.out.println(Arrays.toString(methods.reverse(numbers)));
+        System.out.println("\n Третье задание \n");
 
-        System.out.println("Массив из чисел Фибоначчи.");
-        System.out.println("Результат четвёртого метода:");
-        System.out.println(Arrays.toString(methods.fibonacciNumbers(10)));
+        Triangle TR = new Triangle(new Point(0, 0), new Point(0, 5), new Point(10, 0));
+        System.out.println(TR.getSideB());
+        System.out.println(TR.getCenter().toString());
 
-        System.out.println("Максимальное количество одинаковых элементов.");
-        System.out.println("Результат пятого метода:");
-        System.out.println(methods.maxCountSymbol(numbers));
+        System.out.println("\n Четвёртое задание \n");
+
+        Time TM = new Time(12, 23, 23);
+        TM.setMinutes(55);
+        TM.setHours(12);
+        TM.setSeconds(59);
+        System.out.println(TM.toString());
+
+        System.out.println("\n Я что похож на абонента? \n");
+
+        AbonentTask AB = new AbonentTask();
+        System.out.println("\n Абоненты с большим временем, чем X \n");
+        AB.showAbonentsThatHasMoreTime(50);
+        System.out.println("\n Междугородние абоненты \n");
+        AB.showIntercityAbonents();
+        System.out.println("\n Абоненты в алфавитном порядке \n");
+        AB.showOrderedAbonents();
+
+        System.out.println("\n Тренировка со строками \n");
+
+        StringBlock SB = new StringBlock();
+        System.out.println("\n Подсчёт цифр \n");
+        System.out.println(SB.getNumbersCount("asdasd12, wsa"));
+
+        System.out.println("\n Только чётные \n");
+        System.out.println(SB.getOddCharacterString("asdasd12, wsa"));
+
+        System.out.println("\n Подсчёт последнего символа \n");
+        System.out.println(Arrays.toString(SB.getArrayLastSymbol("asdasd12, wsa")));
+
+        System.out.println("\n Замена цифр \n");
+        System.out.println((SB.replaceAllNumbers("asdasd12, wsa")));
+
+        System.out.println("\n Ревёрс \n");
+        System.out.println((SB.replaceAllNumbers("asdЫIOasd12, wssSa sdsSS")));
+
+        System.out.println("\n Практический блок \n");
+
+        PracticeTask PT = new PracticeTask();
+        PT.main();
     }
-
 }
